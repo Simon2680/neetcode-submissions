@@ -7,26 +7,27 @@ class Solution:
            E: length of subsequence that is greater than s--> return False
 
               
-        P: compare indices
+        P: let use pointers, 
+        place a pointer on the s and loop through t until you find the char at where pointer
+        at s is 
+        once the character is found then  move the pointer
+        if you are done with all the characters in s --> True
+        otherwise false
+           
         I
         """
-        if len(s) > len(t):
+        pointer =0
+
+        if len(s)>len(t):
             return False
-        for char in s:
-            if char not in t:
-                return False
-        count = 0
-        pointer = 0
-        for char in s:
-            for i in range(pointer, len(t)):
-                if char == t[i]:
-                    count += 1
-                    pointer = i+1
-                    break
-        return count == len(s)
-            
-            
-            
+        else:
+            for char in range(len(t)):
+                if pointer < len(s) and t[char] == s[pointer]:
+                    pointer += 1
+        return pointer == len(s)
+
+        
+        
        
 
         

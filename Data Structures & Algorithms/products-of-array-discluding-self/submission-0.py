@@ -1,28 +1,30 @@
+import math
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        """
-        create an empty list
-        loop over the given list and multiply everything with the rest of others in list
-        at except i
-        put the product at i in new list
-        return new list
-        """
 
-        myList = []
-        for i in range(len(nums)):
-            product = 1
+        """
+        to use O(n):
+        find a product without using 0's in the list
+        loop over if the i
            
+        """
+        # newnums = [1]*len(nums)
+        # prefix = 1
+        # for i in range(len(nums)):
+        #     newnums[i] = prefix
+        #     prefix *= nums[i]
+        # postfix =1
+        # for i in range(len(nums)-1, -1, -1):
+        #     newnums[i] = postfix * newnums[i]
+        #     postfix *= nums[i]
+        # return newnums
+        newarray = []
+        for i in range(len(nums)):
+            summ = 1
             for j in range(len(nums)):
-                if i == j:
-                    continue
-                else:
-                  
-                    product *= nums[j]
-                   
-            myList.append(product)
-            
-        return myList
+                if i != j:
+                    summ *= nums[j]
+            newarray.append(summ) 
+        return newarray
+                
 
-
-
-        

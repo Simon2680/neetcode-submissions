@@ -6,27 +6,31 @@
 
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        """
-        create a dummy node
-        curr = dummy
-        while list one and list 2 loop:
-            compare list1.lavue and list.value:
-            curr.next = smaller value
-            update pointer of where there is a small number
-        curr.next = list1 or list2
-        """
+        if not list1:
+            return list2
+        if not list2:
+            return list1
 
-        dummy = ListNode()
-        curr = dummy
-        while list1 and list2:
-            if list1.val > list2.val:
-                curr.next = list2
-                list2 = list2.next
-            else:
-                curr.next = list1
-                list1 = list1.next
-            curr = curr.next
-        curr.next = list1 or list2
-        return dummy.next
+        if list1.val < list2.val:
+            temp = list1.next
+            list1.next = self.mergeTwoLists(temp, list2)
+            return list1
+        else:
+            temp = list2.next
+            list2.next = self.mergeTwoLists(temp, list1)
+            return list2
+
+
+
+        
+
+
+        
+
+        
+        
+
+
+
 
         
